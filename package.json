@@ -1,0 +1,34 @@
+{
+  "name": "git-stash-staged",
+  "version": "1.0.0",
+  "description": "nodejs package to stash only staged files in a git repository",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/RubinderS/git-stash-staged.git"
+  },
+  "keywords": [
+    "git"
+  ],
+  "author": "Rubinder Singh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RubinderS/git-stash-staged/issues"
+  },
+  "homepage": "https://github.com/RubinderS/git-stash-staged#readme",
+  "devDependencies": {
+    "@types/cross-spawn": "6.0.2",
+    "@types/node": "16.4.13",
+    "clean-webpack-plugin": "3.0.0",
+    "ts-loader": "9.2.5",
+    "webpack": "5.48.0",
+    "webpack-cli": "4.7.2",
+    "webpack-node-externals": "3.0.0"
+  },
+  "dependencies": {
+    "cross-spawn": "7.0.3"
+  }
+}
