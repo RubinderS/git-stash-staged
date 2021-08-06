@@ -1,6 +1,7 @@
 const path = require('path'),
   {CleanWebpackPlugin} = require('clean-webpack-plugin'),
-  nodeExternals = require('webpack-node-externals');
+  nodeExternals = require('webpack-node-externals'),
+  NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
 
 const isProduction =
   typeof NODE_ENV !== 'undefined' && NODE_ENV === 'production';
@@ -16,7 +17,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: '[name].bundle.js',
-    libraryTarget: 'umd', // keeps the exports of the library
+    libraryTarget: '', // keeps the exports of the library
     globalObject: 'this',
   },
 
@@ -31,10 +32,10 @@ module.exports = {
       {
         test: /\.ts$/,
         exclude: /node_modules/,
-        loader: 'ts-loader',
+        use: [{loader: 'ts-loader'}, {loader: 'shebang-loader'}],
       },
     ],
   },
 
-  plugins: [new CleanWebpackPlugin()],
+  plugins: [new CleanWebpackPlugin(), new NodePolyfillPlugin()],
 };
