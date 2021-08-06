@@ -17,7 +17,6 @@ async function gitStashStaged(dir: string) {
   const goodStashMessage = Date.now();
 
   const currentStaged = await runCommand('git', ['diff', '--cached']);
-
   const stagedFiles = parseFilePathsFromDiff(currentStaged);
 
   await runCommand('git', [
