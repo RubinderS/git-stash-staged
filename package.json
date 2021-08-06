@@ -33,6 +33,7 @@
     "webpack-node-externals": "3.0.0"
   },
   "dependencies": {
-    "cross-spawn": "7.0.3"
+    "cross-spawn": "7.0.3",
+    "nodesimplecli": "3.0.7"
   }
 }
