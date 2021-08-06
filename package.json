@@ -2,12 +2,12 @@
   "name": "git-stash-staged",
   "version": "1.0.0",
   "description": "nodejs package to stash only staged files in a git repository",
-  "main": "build/index.js",
+  "main": "build/index.bundle.js",
   "bin": {
     "git-stash-staged": "./build/index.bundle.js"
   },
   "scripts": {
-    "build": "webpack"
+    "build": "cross-env NODE_ENV=production webpack"
   },
   "repository": {
     "type": "git",
@@ -26,7 +26,7 @@
     "@types/cross-spawn": "6.0.2",
     "@types/node": "16.4.13",
     "clean-webpack-plugin": "3.0.0",
-    "node-polyfill-webpack-plugin": "1.1.4",
+    "cross-env": "7.0.3",
     "shebang-loader": "0.0.1",
     "ts-loader": "9.2.5",
     "webpack": "5.48.0",

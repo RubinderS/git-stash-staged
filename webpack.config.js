@@ -1,14 +1,14 @@
 const path = require('path'),
+  webpack = require('webpack'),
   {CleanWebpackPlugin} = require('clean-webpack-plugin'),
-  nodeExternals = require('webpack-node-externals'),
-  NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
+  nodeExternals = require('webpack-node-externals');
 
-const isProduction =
-  typeof NODE_ENV !== 'undefined' && NODE_ENV === 'production';
+const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
   mode: isProduction ? 'production' : 'development',
   devtool: isProduction ? false : 'inline-source-map',
+  target: 'node',
 
   entry: {
     index: ['./src/index.ts'],
@@ -17,8 +17,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: '[name].bundle.js',
-    libraryTarget: '', // keeps the exports of the library
     globalObject: 'this',
+    library: {name: 'git-stash-staged', type: 'umd'},
   },
 
   externals: [nodeExternals()],
@@ -37,5 +37,8 @@ module.exports = {
     ],
   },
 
-  plugins: [new CleanWebpackPlugin(), new NodePolyfillPlugin()],
+  plugins: [
+    new CleanWebpackPlugin(),
+    new webpack.BannerPlugin({banner: '#!/usr/bin/env node', raw: true}),
+  ],
 };
