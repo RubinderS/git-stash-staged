@@ -8,7 +8,6 @@ const isProduction = process.env.NODE_ENV === 'production';
 module.exports = {
   mode: isProduction ? 'production' : 'development',
   devtool: isProduction ? false : 'inline-source-map',
-  target: 'node',
 
   entry: {
     index: ['./src/index.ts'],
@@ -21,6 +20,7 @@ module.exports = {
     library: {name: 'git-stash-staged', type: 'umd'},
   },
 
+  externalsPresets: {node: true},
   externals: [nodeExternals()],
 
   resolve: {
