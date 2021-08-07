@@ -25,6 +25,11 @@ async function gitStashStaged(dir: string) {
   const currentStaged = await runCommand('git', ['diff', '--cached'], dir);
   const stagedFiles = parseFilePathsFromDiff(currentStaged);
 
+  if (stagedFiles.length === 0) {
+    process.stdout.write('no files found in staging area');
+    process.exit(0);
+  }
+
   await runCommand(
     'git',
     ['stash', '--keep-index', '-m', tempStashMessage],
