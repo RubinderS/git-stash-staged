@@ -16,22 +16,25 @@ function parseFilePathsFromDiff(diff: string): string[] {
 }
 
 async function gitStashStaged(dir: string) {
-  const tempStashMessage = Date.now();
-  const stagedStashMessage = cliOptions.message ?? Date.now();
+  const tempStashMessage = Date.now().toString();
+
+  const stagedStashMessage = cliOptions.message
+    ? cliOptions.message.replace(/\s+/g, '_')
+    : Date.now().toString();
 
   const currentStaged = await runCommand('git', ['diff', '--cached'], dir);
   const stagedFiles = parseFilePathsFromDiff(currentStaged);
 
   await runCommand(
     'git',
-    ['stash', '--keep-index', '-m', String(tempStashMessage)],
+    ['stash', '--keep-index', '-m', tempStashMessage],
     dir,
   );
 
-  await runCommand('git', ['stash', '-m', String(stagedStashMessage)], dir);
+  await runCommand('git', ['stash', '-m', stagedStashMessage], dir);
   await runCommand('git', ['stash', 'pop', 'stash@{1}'], dir);
 
-  if (cliOptions.keepFiles) {
+  if (!cliOptions.keepFiles) {
     stagedFiles.forEach(async (file) => {
       await runCommand('git', ['restore', file], dir);
     });
