@@ -20,5 +20,9 @@ export const cli = (args: string[]) => {
     process.exit(1);
   };
 
-  return new NodeSimpleCLI('git-stash-staged').parse(args, flags, onError);
+  return new NodeSimpleCLI('git-stash-staged', process.env.version).parse(
+    args,
+    flags,
+    onError,
+  );
 };
