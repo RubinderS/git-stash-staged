@@ -14,12 +14,12 @@ const flags = createFlags({
   },
 });
 
-export const cli = (args: string[]) => {
-  const onError = (err: ErrorType) => {
-    console.log(err.display);
-    process.exit(1);
-  };
+const onError = (err: ErrorType) => {
+  console.log(err.display);
+  process.exit(1);
+};
 
+export const cli = (args: string[]) => {
   return new NodeSimpleCLI('git-stash-staged', process.env.version).parse(
     args,
     flags,
