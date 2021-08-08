@@ -5,6 +5,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
+  ignorePatterns: ['webpack.config.js'],
   rules: {
     'prefer-const': [
       'error',
