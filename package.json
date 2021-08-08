@@ -14,7 +14,9 @@
     "url": "git+ssh://git@github.com/RubinderS/git-stash-staged.git"
   },
   "keywords": [
-    "git"
+    "git",
+    "stash",
+    "staged"
   ],
   "author": "Rubinder Singh",
   "license": "MIT",
