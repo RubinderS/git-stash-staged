@@ -7,7 +7,9 @@
     "git-stash-staged": "./build/index.bundle.js"
   },
   "scripts": {
-    "build": "cross-env NODE_ENV=production webpack"
+    "lint": "eslint src/*",
+    "build": "npm run lint && cross-env NODE_ENV=production webpack",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
