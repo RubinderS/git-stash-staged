@@ -1,5 +1,6 @@
 # git-stash-staged
 
+![GitHub](https://img.shields.io/github/license/rubinders/git-stash-staged?style=flat-square)
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/rubinders/git-stash-staged?style=flat-square)
 
 Stash only staged files in a git repository
