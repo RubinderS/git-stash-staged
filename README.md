@@ -7,7 +7,7 @@ Stash only staged files in a git repository
 
 ## Usage
 
-run the following command in the git repository directory:-
+run the following command in the git repository:-
 
 ```
 npx git-stash-staged
