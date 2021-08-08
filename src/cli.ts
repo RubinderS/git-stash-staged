@@ -15,7 +15,7 @@ const flags = createFlags({
 });
 
 const onError = (err: ErrorType) => {
-  console.log(err.display);
+  process.stdout.write(err.display);
   process.exit(1);
 };
 
@@ -23,6 +23,6 @@ export const cli = (args: string[]) => {
   return new NodeSimpleCLI('git-stash-staged', process.env.version).parse(
     args,
     flags,
-    onError,
+    onError
   );
 };
