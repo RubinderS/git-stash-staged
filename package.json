@@ -1,7 +1,7 @@
 {
   "name": "git-stash-staged",
   "version": "1.0.0",
-  "description": "nodejs package to stash only staged files in a git repository",
+  "description": "Stash only staged files in a git repository",
   "main": "build/index.bundle.js",
   "bin": {
     "git-stash-staged": "./build/index.bundle.js"
