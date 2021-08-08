@@ -33,7 +33,7 @@ async function gitStashStaged(dir: string) {
   await runCommand(
     'git',
     ['stash', '--keep-index', '-m', tempStashMessage],
-    dir,
+    dir
   );
 
   await runCommand('git', ['stash', '-m', stagedStashMessage], dir);

@@ -3,7 +3,7 @@ import {spawn} from 'cross-spawn';
 export const runCommand = (
   cmd: string,
   args?: string[],
-  dir?: string,
+  dir?: string
 ): Promise<string> => {
   return new Promise((resolve, reject) => {
     const child = spawn(cmd, args, {
@@ -17,7 +17,7 @@ export const runCommand = (
       childOutput += data;
     });
 
-    child.on('close', (code: number) => {
+    child.on('close', (_code: number) => {
       resolve(childOutput);
     });
 
