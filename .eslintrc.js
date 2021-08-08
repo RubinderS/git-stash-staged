@@ -15,13 +15,7 @@ module.exports = {
     ],
     'no-tabs': ['error', {allowIndentationTabs: true}],
     '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/explicit-function-return-type': [
-      'warn',
-      {
-        allowExpressions: true,
-        allowHigherOrderFunctions: true,
-      },
-    ],
     '@typescript-eslint/no-object-literal-type-assertion': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
   },
 };
