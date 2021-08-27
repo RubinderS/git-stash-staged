@@ -7,11 +7,6 @@ const flags = createFlags({
     description: 'stash message',
     argument: true,
   },
-  keepFiles: {
-    flag: '--keep',
-    alias: '-k',
-    description: 'keep files in index after staging',
-  },
 });
 
 const onError = (err: ErrorType) => {

@@ -38,12 +38,6 @@ async function gitStashStaged(dir: string) {
 
   await runCommand('git', ['stash', '-m', stagedStashMessage], dir);
   await runCommand('git', ['stash', 'pop', 'stash@{1}'], dir);
-
-  if (!cliOptions.keepFiles) {
-    stagedFiles.forEach(async (file) => {
-      await runCommand('git', ['restore', file], dir);
-    });
-  }
 }
 
 gitStashStaged(process.cwd());

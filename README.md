@@ -10,7 +10,7 @@ A package to stash just the staged files in a git repository
 run the following command in the git repository:-
 
 ```
-npx git-stash-staged
+npx git-stash-staged -m "commit message"
 ```
 
 all the staged files will be stashed
@@ -24,8 +24,7 @@ Usage: git-stash-staged [options]
 
 Options:
   -m, --message <val>  stash message
-  -k, --keep           keep files in index after staging
-
-  -h, --help           help
-  -v, --version        version
+      
+  -h, --help           help         
+  -v, --version        version 
 ```
