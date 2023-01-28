@@ -10,7 +10,7 @@ A package to stash just the staged files in a git repository
 run the following command in the git repository:-
 
 ```
-npx git-stash-staged -m "commit message"
+npx git-stash-staged -m "stash message"
 ```
 
 all the staged files will be stashed
